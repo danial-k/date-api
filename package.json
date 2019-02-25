@@ -1,0 +1,30 @@
+{
+  "name": "date-api",
+  "version": "1.0.0",
+  "description": "Date API",
+  "repository": {
+    "url": "https://github.com/danial-k/date-api"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "nyc mocha && nyc report --reporter=html && ./node_modules/.bin/eslint src test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "newman": "^4.4.0",
+    "nyc": "^13.3.0"
+  }
+}

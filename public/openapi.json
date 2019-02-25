@@ -1,0 +1,230 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Date API",
+        "description": "API with date calculation functions",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:5001",
+            "description": "Development"
+        }
+    ],
+    "paths": {
+        "/range": {
+            "get": {
+                "operationId": "getDateRange",
+                "summary": "Retrieve list of dates within a start and end range",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved dates in range",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArrayOfDate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Start date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "query",
+                        "description": "End date in range.  Must be greater than start date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ]
+            }
+        },
+        "/range/offset": {
+            "get": {
+                "operationId": "getDateRangeByOffset",
+                "summary": "Retrieve list of dates based on an integrer offset to or from a certain date",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved dates by offset",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArrayOfDate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Date to or from which to calculate",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Integer offset ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ]
+            }
+        },
+        "/weekStarting": {
+            "get": {
+                "operationId": "getDatesByWeekStarting",
+                "summary": "Retrieve list of dates within a week of a start date",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved dates",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArrayOfDate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Date week starts",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ]
+            }
+        },
+        "/weekEnding": {
+            "get": {
+                "operationId": "getDatesByWeekEnding",
+                "summary": "Retrieve list of dates within a week of an end date",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved dates",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArrayOfDate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Date week ends",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ]
+            }
+        },
+        "/inMonth": {
+            "get": {
+                "operationId": "getDatesInMonthByYear",
+                "summary": "Retrieve list of dates within a month by year",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved dates",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArrayOfDate"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "Year",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "Month number in the range 1 to 12",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ArrayOfDate": {
+                "type": "array",
+                "items": {
+                    "type": "date"
+                },
+                "example": [
+                    "2018-01-01",
+                    "2018-01-02",
+                    "2018-01-03",
+                    "2018-01-04",
+                    "2018-01-05",
+                    "2018-01-06",
+                    "2018-01-07"
+                ]
+            }
+        }
+    }
+}

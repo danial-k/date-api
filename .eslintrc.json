@@ -1,0 +1,6 @@
+{
+    "extends": "standard",
+    "rules": {
+        "no-unmodified-loop-condition": 0
+    }
+}
