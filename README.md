@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/danial-k/date-api.svg?branch=master)](https://travis-ci.org/danial-k/date-api)
+[![Build Status](https://travis-ci.org/danial-k/date-api.svg?branch=master)](https://travis-ci.org/danial-k/date-api) [![Coverage Status](https://coveralls.io/repos/github/danial-k/date-api/badge.svg?branch=master)](https://coveralls.io/github/danial-k/date-api?branch=master)
 
 # Introduction
 Simple Date API
