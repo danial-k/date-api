@@ -1,3 +1,6 @@
+# Introduction
+Simple Date API
+
 # API Documentation
 OpenAPI is used to define the API endpoints, located in ```public/openapi.json``` or accessed when the application is running by accessing ```/openapi.json```.
 
@@ -29,7 +32,7 @@ Note that ```:Z``` is require on SELinux (e.g. CentOS or RHEL) to allow access t
 
 # Tests
 ## Code standards
-Linting tests are carried out using ESLint.  See ```gitlab-ci.yml``` for execution.
+Linting tests are carried out using ESLint.  See the test section in ```package.json``` for execution.
 
 ## Unit tests
 Unit tests are executed using the [Mocha](https://mochajs.org) framework.  Code coverage is provided via the [Istanbul](https://istanbul.js.org) framework.  See the test section in ```package.json``` for details.
@@ -38,7 +41,7 @@ Coverage report output to the ```coverage``` folder.
 ## End to end tests
 A collection of Postman requests are available at ```postman/date_api.postman_collection.json```.  This file
 may be imported into Postman and executed via the Postman Collection Runner.  Alternatively, to run via the
-command line the Postman cli collection runner (Newman) may be used .  You will need to create an environment file with ```{{date_api_url}}``` pointing to ```http://127.0.0.1:port```.  This may be generated using the UI
+command line the Postman cli collection runner (Newman) may be used .  You will need to create an environment file with ```{{date_api_url}}``` pointing to ```http://127.0.0.1:port```.  This may be generated using the postman UI.
 ```
 ./node_modules/.bin/newman run postman/date_api.postman_collection.json -e newman/dev.postman_environment.json -k
 ```
