@@ -8,7 +8,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "nyc mocha && nyc report --reporter=html && ./node_modules/.bin/eslint src test"
+    "test": "nyc mocha && nyc report --reporter=text-lcov | coveralls && ./node_modules/.bin/eslint src test"
   },
   "license": "MIT",
   "dependencies": {
@@ -17,6 +17,7 @@
     "express": "^4.16.3"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "eslint": "^5.10.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
