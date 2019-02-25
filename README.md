@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/danial-k/date-api.svg?branch=master)](https://travis-ci.org/danial-k/date-api)
+
 # Introduction
 Simple Date API
 
